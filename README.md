@@ -1,6 +1,19 @@
 # Blixyr
 Simple Interpreted Language made in Python
 
+# Installation
+Unzip the Blixyr.zip file, and run install.cmd
+
+install.cmd moves the Blixyr file to your local appdata folder, and sets environment variables to easily keep track of where the files are held.
+
+NOTE: If you are not on Windows, just unzip Blixyr.zip and run Blixyr.pyz directly.
+
+# Shell
+Blixyr comes with a built in shell that has two features that aren't in normal Blixyr.
+
+run: You can run files using the run command in the format "run <filename>.bx"
+exit: Exit the shell
+
 # Documentation
 ## Main Syntax Rules
 - String literals use '' or ""
