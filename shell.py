@@ -1,3 +1,4 @@
+__import__('sys').path.append(__import__('os').path.dirname(__file__))
 from Interpreter import *
 
 global_symbols: dict = {}
@@ -46,7 +47,7 @@ def run(fn: str):
             return
 
 def main():
-    print("Blixyr [v1.0]\n")
+    print("Blixyr v1.1.2\n")
     while True:
         inp: str = input(">>> ")
         

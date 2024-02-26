@@ -1,7 +1,8 @@
+__import__('sys').path.append(__import__('os').path.dirname(__file__))
 from Token import *
 
 SYMBOLS = ['=']
-KEYWORDS = ['var', "print", 'println', 'input', 'getch', 'to_str']
+KEYWORDS = ['var', "print", 'println', 'input', 'getch', 'to_string', 'to_bytes', 'wait']
 
 class Lexer:
     def __init__(self, line: str) -> None:
@@ -67,6 +68,13 @@ class Lexer:
                 tokens.append(Token(TokenType.Symbol, self.current_char))
                 self.advance()
 
+            elif self.current_char.isdigit():
+                while self.current_char.isdigit():
+                    tok_val += self.current_char
+                    self.advance()
+
+                tokens.append(Token(TokenType.Number, tok_val))
+
             elif self.current_char.isalpha() or self.current_char == '_':
                 while self.current_char.isalnum() or self.current_char == '_':
                     tok_val += self.current_char
@@ -74,9 +82,11 @@ class Lexer:
 
                 is_keyword = tok_val in KEYWORDS
 
-                tokens.append(Token(TokenType.Keyword if is_keyword else TokenType.Identifier, tok_val))
+                is_bool = tok_val in ['true', 'false']
 
-                if is_keyword and self.current_char != ';':
+                tokens.append(Token(TokenType.Keyword if is_keyword else TokenType.Bool_Literal if is_bool else TokenType.Identifier, tok_val))
+
+                if is_keyword and self.current_char == ' ':
                     self.advance()
 
             else:

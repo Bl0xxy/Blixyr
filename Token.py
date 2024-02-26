@@ -6,6 +6,8 @@ class TokenType(Enum):
     Literal = 2
     Keyword = 3
     EOL = 4
+    Bool_Literal = 5
+    Number = 6
 
 class Token:
     def __init__(self, type: TokenType, value: str) -> None:
