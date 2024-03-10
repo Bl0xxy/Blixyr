@@ -94,6 +94,17 @@ func sayHello() {
 ```
 
 ## Standard Library
+You can import modules by using the ```import``` keyword.
+
+Usage:
+```
+import stdio;
+
+func main() {
+  println("Hello, World!");
+};
+```
+
 - stdio
   print(string); (Prints a string to the console)
   println(string); (Prints a string to the console and prints a newline as well)
