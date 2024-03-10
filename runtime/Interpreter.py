@@ -100,7 +100,7 @@ class Interpreter:
                     global_symbols[identifier] = ValueNode(value, global_symbols[identifier].type)
 
                 case NodeType.WaitNode:
-                    __import__('time').sleep(self.interpret_value(self.current_node.children[0], global_symbols))
+                    __import__('time').sleep(int(self.interpret_value(self.current_node.children[0], global_symbols)))
 
                 case NodeType.FuncCallNode:
                     identifier = self.current_node.children[0]
@@ -119,7 +119,7 @@ class Interpreter:
                     if self.current_node.children[1]:
                         args = (line, {})
                     else:
-                        args = (line)
+                        args = tuple([line])
                     try:
                         exec(*args)
                     except Exception as e:
