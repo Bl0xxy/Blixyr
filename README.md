@@ -2,11 +2,15 @@
 Simple Interpreted Language made in Python
 
 # Installation
-Unzip the Blixyr.zip file, and run install.cmd
+Windows:
+1. Download ```Blixyr.pyz``` and ```install.cmd```
+2. Double click ```install.cmd```
+3. OPTIONAL: Press the WIN key on your keyboard, then type "Edit environment variables for your account" and press enter
+4. OPTIONAL: Click on the PATH variable, click edit, then add a new one with the path to the Blixyr.pyz file (usually located in %LOCALAPPDATA%/Blixyr
 
-install.cmd moves the Blixyr file to your local appdata folder, and sets environment variables to easily keep track of where the files are held.
-
-NOTE: If you are not on Windows, just unzip Blixyr.zip and run Blixyr.pyz directly.
+Other Operating Systems:
+1. Download ```Blixyr.pyz```
+2. Run ```Blixyr.pyz```
 
 # Shell
 Blixyr comes with a built in shell that has two features that aren't in normal Blixyr.
@@ -16,8 +20,21 @@ exit: Exit the shell
 
 # Documentation
 ## Main Syntax Rules
-- String literals use '' or ""
-- Lines must end with a semicolon (;)
+### Strings
+String literals can be represented with " or '
+
+### Booleans
+You can have ```true``` or ```false```
+
+### Numbers
+Decimals are not supported yet so just integers
+
+### Functions
+You can call a function with identifier();
+
+If you are making a function, you still need to include a semicolon at the end of the statement.
+
+ex. func main() {};
 
 ## Escape Character
 The escape character (\) can be used within a string to have different value.  Here are the following escape sequences you can use:
@@ -35,45 +52,58 @@ var myVariable = "Hello, World!";
 You can access variables when printing data like the following:
 ```
 var name = 'Hello, World!';
-println name;
+print(name);
 ```
-
-## Console IO
-### Output
-You can print text to the console in two ways.  println, and print.
-
-```
-print "Hello, World!";
-println "Hello, World!";
-print "Goodbye!";
-```
-
-Output:
-Hello, World!Hello, World!
-Goodbye!
 
 ### Input
 There are two forms of input: input, and getch
 
 Input takes user input until it encounters a new line, while getch takes one character and doesn't wait for a newline.
 ```
-print 'What is your name?\n>';
+print('What is your name?\n>');
 input name;
-print "Your name is ";
-println name;
+print("Your name is ");
+println(name);
 
 getch;
 ```
 
 ### Valid Types
-There are currently only two types of variables.  Strings, and Bytes.  You can turn a bytes object into a string by using to_str but not the other way around.
+There are multiple types.
+
+Strings, booleans, bytes, numbers, functions.  You can use to_string and to_bytes to convert bytes to strings, and strings to bytes.
 
 Usage:
 ```
-print 'Press any key: ';
+print('Press any key: ');
 getch key;
-to_str key;
+to_string key;
 
-print '\nYou pressed: ';
-println key;
+print('\nYou pressed: ');
+println(key);
 ```
+
+### Functions
+You can make a function by using the func keyword.
+
+Usage:
+```
+func sayHello() {
+  println("Hello");
+};
+```
+
+## Standard Library
+- stdio
+  print(string); (Prints a string to the console)
+  println(string); (Prints a string to the console and prints a newline as well)
+
+- conutil
+  clear(); (Clears the console)
+  flush(); (Flushes the output buffer)
+
+- python
+  exec(string); (Executes Python code)
+
+- thread
+  wait(number); (Pauses execution by seconds)
