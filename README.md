@@ -118,3 +118,51 @@ func main() {
 
 - thread
   wait(number); (Pauses execution by seconds)
+
+## Features coming soon
+- Improved Scope System
+- If Statements
+- Loops
+- Returning Values from Functions
+- Math
+
+## Putting it all together
+Most languages either have a specific starting point like ```int main();``` in C style languages, or just starting with the first line. 
+
+In Blixyr, you get the option of having a starting point or not.  If you choose to have a starting function then it must be named `main`
+
+You can create a test program with all the shown features with the following code:
+
+```
+import stdio;
+import conutil;
+import thread;
+import python;
+
+func main() {
+  getName(getNameMSG);
+
+  anyKey();
+};
+
+func getName() {
+  print(args);
+  input name;
+
+  wait(1);
+
+  print(sayName);
+  println(name);
+};
+
+func anyKey() {
+  print(anyKeyMSG);
+  flush();
+  getch;
+  println();
+};
+
+var sayName = "Your name is ";
+var getNameMSG = "What is your name?\n> ";
+var anyKeyMSG = "Press any key to continue...";
+```
